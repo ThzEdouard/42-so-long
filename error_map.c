@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 14:11:16 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/08/07 17:49:02 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/08/07 18:41:20 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int verif_line(s_map *map)
 		x = 0;
 		while (map->map[x])
 		{
-			if (map->map[x] == '1')
+			if (x < map->x && map->map[x] == '1')
 			{
 				x++;
 				ft_printf("%c", map->map[x]);
