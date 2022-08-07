@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 14:08:27 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/08/07 16:37:20 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/08/07 17:40:49 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	{
 		if (name_map(argv[1]))
 		{
-			ft_printf("%s nice name", argv[1]) ;
+			//ft_printf("%s nice name", argv[1]) ;
 			int fd = open(argv[1], O_RDONLY);
 			if (verif_map(fd))
 				ft_printf("map ok");

@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 14:11:16 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/08/07 16:39:09 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/08/07 17:49:02 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,52 +32,57 @@ int	name_map(char *arg)
 int	verif_map(int fd)
 {
 	s_map	map;
-
+	int x;
 	while (map.map = get_next_line(fd))
 	{
 		map.y++;
 		if (map.x == 0 || map.x != 0)
 		{
-			if (map.y == 1)
-				map.x = ft_strlen(map.map);
-			if (map.x == ft_strlen(map.map))
+			map.x = ft_strlen(map.map);
+			x = map.x;
+			if (x == ft_strlen(map.map))
 				map.x = ft_strlen(map.map);
 			else
 				return (0);
+			ft_printf("1");
+		}
+		if (verif_line(&map))
+		{
+			free(map.map);
+			ft_printf("2");
+		}else
+		{
+			free(map.map);
+			ft_printf("3");
+			return (0);
 		}
 		free(map.map);
 	}
-	while (map.map = get_next_line(fd))
-	{
-		if (verif_line(&map))
-			free(map.map);
-		else
-		{
-			free(map.map);
-			return (0);
-		}
-	}
+	if (map.x == map.y || map.y == 1 || map.x == 1)
+		return (0);
 	return (1);
 }
 
 int verif_line(s_map *map)
 {
-	static int	i;
+	static int	i = 0;
 	int			x;
 
-	if (map->x == map->y || map->y == 1 || map->x == 1)
-		return (0);
-	if (i == 0 || i == map->y)
-	{
+	if (i == 0)
+{
 		x = 0;
-		while (x <= map->x)
+		while (map->map[x])
 		{
 			if (map->map[x] == '1')
+			{
 				x++;
+				ft_printf("%c", map->map[x]);
+			}
 			else
 				return (0);
 		}
 		i++;
+		ft_printf(" 1.1");
 	}
 	else
 		if (!verif_wall(map))
