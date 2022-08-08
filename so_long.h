@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 14:07:26 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/08/08 11:28:46 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/08/08 12:13:50 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ typedef struct t_map
 
 int	name_map(char *arg);
 void	map(int fd, s_map *map);
-
+int	verif_map(s_map *maps);
 #endif
