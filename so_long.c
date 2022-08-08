@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 14:08:27 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/08/08 12:15:19 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/08/08 15:52:36 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ int	main(int argc, char **argv)
 			int fd = open(argv[1], O_RDONLY);
 			map(fd, &maps);
 			if (verif_map(&maps))
-				ft_printf("ok");
+				//windows mlx !
 			else
-			ft_printf("non");
+				ft_printf("Error map !");
 		}
 		else
-			ft_printf("non");
+			ft_printf("Error name map !");
 	}
 
 }
