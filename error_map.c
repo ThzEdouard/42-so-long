@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 14:11:16 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/08/07 18:41:20 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/08/08 11:36:55 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,87 +29,25 @@ int	name_map(char *arg)
 	return (0);
 }
 
-int	verif_map(int fd)
+void	map(int fd, s_map *maps)
 {
-	s_map	map;
-	int x;
-	while (map.map = get_next_line(fd))
+	char	*tmp_buf;
+	char	*tmp_map;
+
+	tmp_buf = get_next_line(fd);
+	tmp_map = ft_strdup("");
+	while (tmp_buf != NULL)
 	{
-		map.y++;
-		if (map.x == 0 || map.x != 0)
-		{
-			map.x = ft_strlen(map.map);
-			x = map.x;
-			if (x == ft_strlen(map.map))
-				map.x = ft_strlen(map.map);
-			else
-				return (0);
-			ft_printf("1");
-		}
-		if (verif_line(&map))
-		{
-			free(map.map);
-			ft_printf("2");
-		}else
-		{
-			free(map.map);
-			ft_printf("3");
-			return (0);
-		}
-		free(map.map);
+		tmp_map = strjoin(tmp_map, tmp_buf);
+		free(tmp_buf);
+		tmp_buf = get_next_line(fd);
 	}
-	if (map.x == map.y || map.y == 1 || map.x == 1)
-		return (0);
-	return (1);
+	maps->map = ft_split(tmp_map, '\n');
+	free(tmp_map);
+	free(tmp_buf);
 }
 
-int verif_line(s_map *map)
+int	verif_map(s_map *maps)
 {
-	static int	i = 0;
-	int			x;
-
-	if (i == 0)
-{
-		x = 0;
-		while (map->map[x])
-		{
-			if (x < map->x && map->map[x] == '1')
-			{
-				x++;
-				ft_printf("%c", map->map[x]);
-			}
-			else
-				return (0);
-		}
-		i++;
-		ft_printf(" 1.1");
-	}
-	else
-		if (!verif_wall(map))
-			return(0);
-	return (1);
-}
-
-int	verif_wall(s_map *map)
-{
-	int	i;
-
-	if (map->map[0] != '1' || map->map[map->x] != '1')
-		return (0);
-	i = 0;
-	while (map->map[i])
-	{
-		if (map->map[i] != '1' || map->map[i] != '0' || map->map[i] != 'C'
-			|| map->map[i] != 'E' || map->map[i] != 'P')
-			return (0);
-		if (map->map[i] != 'C')
-			map->item++;
-		if (map->map[i] != 'E')
-			map->n_exit++;
-		if ( map->map[i] != 'P')
-			map->pdep++;
-	}
-	if (map->item >= 1 && map->n_exit >= 1 && map->pdep >= 1)
-		return (1);
-	return (0);
+	
 }
