@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 14:11:16 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/08/08 15:29:51 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/08/08 16:31:17 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,7 @@ int	verif_map(s_map *maps)
 	}
 	if (max_x == max_y || !verif_wall(maps->map, max_x, max_y) || !verif_start(maps))
 		return (0);
+	maps->x = max_x;
+	maps->y = max_y;
 	return (1);
 }
