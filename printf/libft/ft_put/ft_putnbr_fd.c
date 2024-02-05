@@ -6,7 +6,7 @@
 /*   By: eflaquet <eflaquet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 12:16:50 by eflaquet          #+#    #+#             */
-/*   Updated: 2022/07/08 07:55:56 by eflaquet         ###   ########.fr       */
+/*   Updated: 2022/08/09 15:25:09 by eflaquet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	long	x;
 
+	x = 0;
 	x = n;
 	if (x < 0)
 	{

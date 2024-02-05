@@ -24,13 +24,16 @@ SRC_FT_STR = ft_str/
 FT_STR =  ft_split ft_strchr ft_strdup ft_striteri ft_strjoin ft_strlcat ft_strlcpy ft_strlen \
 		ft_strmapi ft_strncmp ft_strnstr ft_strrchr ft_strtrim ft_substr
 
+SRC_FT_GNL = gnl/
+FT_GNL =  get_next_line_utils get_next_line
+
 #				//ADD TO SRC_DIR\\#
 SRC_FILES+=$(addprefix $(SRC_FT_CONV),$(FT_CONV))
 SRC_FILES+=$(addprefix $(SRC_FT_IS),$(FT_IS))
 SRC_FILES+=$(addprefix $(SRC_FT_MEM),$(FT_MEN))
 SRC_FILES+=$(addprefix $(SRC_FT_STR),$(FT_STR))
 SRC_FILES+=$(addprefix $(SRC_FT_PUT),$(FT_PUT))
-
+SRC_FILES+=$(addprefix $(SRC_FT_GNL),$(FT_GNL))
 
 SRC 		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
@@ -53,7 +56,7 @@ $(OBJF):
 			@mkdir -p $(OBJ_DIR)$(SRC_FT_STR)
 			@mkdir -p $(OBJ_DIR)$(SRC_FT_MEM)
 			@mkdir -p $(OBJ_DIR)$(SRC_FT_PUT)
-
+			@mkdir -p $(OBJ_DIR)$(SRC_FT_GNL)
 
 clean:
 			@$(RM) -rf $(OBJ_DIR)
